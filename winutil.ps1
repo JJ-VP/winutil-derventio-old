@@ -1801,7 +1801,6 @@ $inputXML = '<Window x:Class="WinUtility.MainWindow"
                             </Grid.RowDefinitions>
                             <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="0" Margin="10">
                                 <Label Content="Browsers" FontSize="16" Margin="5,0"/>
-                                <CheckBox Name="Installbrave" Content="Brave" Margin="5,0"/>
                                 <CheckBox Name="Installchrome" Content="Chrome" Margin="5,0"/>
                                 <CheckBox Name="Installchromium" Content="Chromium" Margin="5,0"/>
                                 <CheckBox Name="Installedge" Content="Edge" Margin="5,0"/>
