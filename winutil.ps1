@@ -926,17 +926,17 @@ function Invoke-WPFDerventioSettings {
   }
 
   Write-Host "Downloading wallpaper..."
-  $bgurl = "https://github.com/JJ-VP/winutil-derventio/tree/main/data/Background.jpg"
+  $bgurl = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/Background.jpg"
   $bgout = "$env:USERPROFILE\.DHT\Background.jpg"
   invoke-WebRequest -Uri $bgurl -OutFile $bgout
 
   Write-Host "Downloading Brave Config..."
-  $braveurl = "https://github.com/JJ-VP/winutil-derventio/tree/main/data/Brave.reg"
+  $braveurl = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/Brave.reg"
   $braveout = "c:\temp\Brave.reg"
   invoke-WebRequest -Uri $braveurl -OutFile $braveout
 
   Write-Host "Downloading Windows 11 Config..."
-  $winurl = "https://github.com/JJ-VP/winutil-derventio/tree/main/data/win11.reg"
+  $winurl = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/win11.reg"
   $winout = "c:\temp\win11.reg"
   invoke-WebRequest -Uri $winurl -OutFile $winout
 
@@ -1345,18 +1345,29 @@ function Invoke-WPFInstall {
 }
 function Invoke-WPFInstallFS {
   Write-Host "Downloading FreshService installer..."
-  $url = "https://github.com/JJ-VP/winutil-derventio/tree/main/data/agent.msi"
+  $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/agent.msi"
   $out = "c:\temp\agent.msi"
   invoke-WebRequest -Uri $url -OutFile $out
-  Start-Process msiexec.exe -Wait -ArgumentList "/i c:\temp\agent.msi EULA=1 PRIVACYPOLICY=1 KSN=1 ALLOWREBOOT=0 /qn"
+  Start-Process msiexec.exe -Wait -ArgumentList "/i c:\temp\agent.msi"
   Write-Host "FreshService instalation finished!"
 }
 function Invoke-WPFInstallKaspersky {
   Write-Host "Downloading Kaspersky installer..."
-  $url = "https://github.com/JJ-VP/winutil-derventio/tree/main/data/kes_win.msi"
+  $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/kes_win.msi"
   $out = "c:\temp\kes_win.msi"
   invoke-WebRequest -Uri $url -OutFile $out
+
+  Write-Host "Downloading required files..."
+  $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/kes.cab"
+  $out = "c:\temp\kes.cab"
+  invoke-WebRequest -Uri $url -OutFile $out
+  $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/bases.cab"
+  $out = "c:\temp\bases.cab"
+  invoke-WebRequest -Uri $url -OutFile $out
+
+  Write-Host "Installing..."
   Start-Process msiexec.exe -Wait -ArgumentList "/i c:\temp\kes_win.msi EULA=1 PRIVACYPOLICY=1 KSN=1 ALLOWREBOOT=0 /qn"
+
   Write-Host "Kaspersky instalation finished!"
 }
 function Invoke-WPFInstallUpgrade {
@@ -1387,7 +1398,7 @@ function Invoke-WPFInstallUpgrade {
     Write-Host "==========================================="
 }
 function Invoke-WPFInstallVPN {
-  $url = "https://github.com/JJ-VP/winutil-derventio/tree/main/data/rootca.crt"
+  $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/rootca.crt"
   $out = "c:\temp\rootca.crt"
   invoke-WebRequest -Uri $url -OutFile $out
   $path = Get-ChildItem $PSScriptRoot\rootca.crt
