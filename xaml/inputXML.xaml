@@ -149,6 +149,12 @@
                                 <CheckBox Name="WPFInstalltelegram" Content="Telegram" Margin="5,0"/>
                                 <CheckBox Name="WPFInstallviber" Content="Viber" Margin="5,0"/>
                                 <CheckBox Name="WPFInstallzoom" Content="Zoom" Margin="5,0"/>
+
+                                <Label Content="Derventio" FontSize="16" Margin="5,0"/>
+                                <CheckBox Name="Installoffice365" Content="Office 365" Margin="5,0"/>
+                                <CheckBox Name="Installbrave" Content="Brave" Margin="5,0"/>
+                                <CheckBox Name="Installadobe" Content="Adobe Reader DC" Margin="5,0"/>
+                                <CheckBox Name="Installonedrive" Content="OneDrive" Margin="5,0"/>
                             </StackPanel>
                             <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Row="1" Grid.Column="1" Margin="10">
                                 <Label Content="Development" FontSize="16" Margin="5,0"/>
@@ -209,7 +215,6 @@
                                 <CheckBox Name="WPFInstalldotnet5" Content=".NET Desktop Runtime 5" Margin="5,0"/>
                                 <CheckBox Name="WPFInstalldotnet6" Content=".NET Desktop Runtime 6" Margin="5,0"/>
                                 <CheckBox Name="WPFInstallnuget" Content="Nuget" Margin="5,0"/>
-                                <CheckBox Name="WPFInstallonedrive" Content="OneDrive" Margin="5,0"/>
                                 <CheckBox Name="WPFInstallpowershell" Content="PowerShell" Margin="5,0"/>
                                 <CheckBox Name="WPFInstallpowertoys" Content="Powertoys" Margin="5,0"/>
                                 <CheckBox Name="WPFInstallprocessmonitor" Content="SysInternals Process Monitor" Margin="5,0"/>
@@ -402,6 +407,13 @@
                                 <Button Name="WPFPanelsound" FontSize="14" Background="AliceBlue" Content="Sound Settings" HorizontalAlignment = "Left" Margin="5" Padding="20,5" Width="200"/>
                                 <Button Name="WPFPanelsystem" FontSize="14" Background="AliceBlue" Content="System Properties" HorizontalAlignment = "Left" Margin="5" Padding="20,5" Width="200"/>
                                 <Button Name="WPFPaneluser" FontSize="14" Background="AliceBlue" Content="User Accounts" HorizontalAlignment = "Left" Margin="5" Padding="20,5" Width="200"/>
+                            </StackPanel>
+                            <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Column="2" Margin="10,5">
+                                <Label Content="Derventio Options" FontSize="16"/>
+                                <Button Name="WPFInstallKaspersky" FontSize="14" Background="AliceBlue" Content="Install Kaspersky" HorizontalAlignment = "Left" Margin="5" Padding="20,5" Width="200"/>
+                                <Button Name="WPFInstallFS" FontSize="14" Background="AliceBlue" Content="Install FS Agent" HorizontalAlignment = "Left" Margin="5" Padding="20,5" Width="200"/>
+                                <Button Name="WPFInstallVPN" FontSize="14" Background="AliceBlue" Content="Install VPN" HorizontalAlignment = "Left" Margin="5" Padding="20,5" Width="200"/>
+                                <Button Name="WPFDerventioSettings" FontSize="14" Background="AliceBlue" Content="Set Preferences" HorizontalAlignment = "Left" Margin="5" Padding="20,5" Width="200"/>
                             </StackPanel>
                         </Grid>
                     </TabItem>

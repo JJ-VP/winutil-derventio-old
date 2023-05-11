@@ -47,6 +47,10 @@ function Invoke-WPFButton {
         "WPFFixesUpdate" {Invoke-WPFFixesUpdate}
         "WPFUpdatesdisable" {Invoke-WPFUpdatesdisable}
         "WPFUpdatessecurity" {Invoke-WPFUpdatessecurity}
+        "WPFInstallKaspersky" {Invoke-WPFInstallKaspersky}
+        "WPFInstallFS" {Invoke-WPFInstallFS}
+        "WPFInstallVPN" {Invoke-WPFInstallVPN}
+        "WPFDerventioSettings" {Invoke-WPFDerventioSettings}
         "WPFWinUtilShortcut" {Invoke-WPFShortcut -ShortcutToAdd "WinUtil"}
         "WPFGetInstalled" {Invoke-WPFGetInstalled -CheckBox "winget"}
         "WPFGetInstalledTweaks" {Invoke-WPFGetInstalled -CheckBox "tweaks"}
