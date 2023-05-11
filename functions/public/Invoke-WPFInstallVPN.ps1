@@ -2,8 +2,7 @@ function Invoke-WPFInstallVPN {
   $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/rootca.crt"
   $out = "c:\temp\rootca.crt"
   invoke-WebRequest -Uri $url -OutFile $out
-  $path = Get-ChildItem $PSScriptRoot\rootca.crt
-  Import-Certificate -FilePath $path -CertStoreLocation cert:\LocalMachine\root
+  Import-Certificate -FilePath $out -CertStoreLocation cert:\LocalMachine\root
   
   function PrintError ($message) {
     Write-Host $message -ForegroundColor Red -BackgroundColor Black
