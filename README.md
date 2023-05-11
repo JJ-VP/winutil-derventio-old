@@ -1,4 +1,8 @@
-# Chris Titus Tech's Windows Utility
+# Chris Titus Tech's Windows Utility Edited for Derventio Housing Trust
+
+[Original Repo](https://github.com/ChrisTitusTech/winutil)
+
+[Original Creator](https://github.com/ChrisTitusTech)
 
 This Utility is a compilation of windows tasks I perform on each Windows system I use. It is meant to streamline *installs*, debloat with *tweaks*, troubleshoot with *config*, and fix Windows *updates*. I am extremely picky on any contributions to keep this project clean and efficient. 
 
@@ -11,19 +15,13 @@ The recommended way is to right click on the start menu and select (PowerShell A
 Launch Command:
 
 ```
-iwr -useb https://christitus.com/win | iex
+irm https://raw.githubusercontent.com/JJ-VP/winutil-derventio/main/winutil.ps1 | iex
 ```
-Or shorter Thanks to [#144](/../../issues/144)
+If you are having TLS 1.2 Issues then run with the following command:
 ```
-irm christitus.com/win | iex
-```
-If you are having TLS 1.2 Issues or You cannot find or resolve `christitus.com/win` then run with the following command:
-```
-[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12;iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/ChrisTitusTech/winutil/main/winutil.ps1')
+[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12;iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/JJ-VP/winutil-derventio/main/winutil.ps1')
 ```
 If you are still having issues try changing your DNS provider to 1.1.1.1 or 8.8.8.8
-
-EXE Wrapper for $10 @ https://www.cttstore.com/windows-toolbox
 
 ## Overview
 
@@ -47,8 +45,3 @@ Video and Written Article walkthrough @ <https://christitus.com/windows-tool/>
 
 If you have any issues with the script please submit them to Issues tab here on GitHub and fill out the template so I can fix any bugs or make feature requests. 
 
-## Contribute Code
-
-**Any new code must be submitted to TEST BRANCH! - No merges will be performed on MAIN branch**
-
-For pull requests, be sure and document ALL changes. If you add something to the tweaks section the undo MUST also be applied to remove the new tweaks. Any tweak not following this format will be denied. Any code not well documented will be denied.
