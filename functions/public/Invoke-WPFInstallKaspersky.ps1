@@ -21,7 +21,7 @@ function Invoke-WPFInstallKaspersky {
   $out = "$DHT\kes.cab"
   invoke-WebRequest -Uri $url -OutFile $out
   $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/aes56.cab"
-  $out = "$DHT\kes.cab"
+  $out = "$DHT\aes56.cab"
   invoke-WebRequest -Uri $url -OutFile $out
 
   Write-Host "Installing..."
