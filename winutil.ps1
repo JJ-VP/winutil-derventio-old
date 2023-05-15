@@ -3018,7 +3018,7 @@ $sync.configs.applications = '{
     "winget": "Microsoft.OneDrive",
     "choco": "onedrive"
   },
-  "WPFInstalloffice": {
+  "WPFInstalloffice365": {
     "winget": "Microsoft.Office",
     "choco": "na"
   },
