@@ -1391,7 +1391,7 @@ function Invoke-WPFInstallKaspersky {
   invoke-WebRequest -Uri $url -OutFile $out
 
   Write-Host "Installing..."
-  Start-Process msiexec.exe -Wait -ArgumentList "/a `"$DHT\kes_win.msi`" EULA=1 PRIVACYPOLICY=1 KSN=1 ALLOWREBOOT=0 /qn"
+  Start-Process msiexec.exe -Wait -ArgumentList "/i `"$DHT\kes_win.msi`" EULA=1 PRIVACYPOLICY=1 KSN=1 ALLOWREBOOT=0 /qn"
 
   Write-Host "Kaspersky instalation finished!"
 }
