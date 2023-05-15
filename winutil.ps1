@@ -3018,6 +3018,10 @@ $sync.configs.applications = '{
     "winget": "Microsoft.OneDrive",
     "choco": "onedrive"
   },
+  "WPFInstalloffice": {
+    "winget": "Microsoft.Office",
+    "choco": "na"
+  },
   "WPFInstalledge": {
     "winget": "Microsoft.Edge",
     "choco": "microsoft-edge"
