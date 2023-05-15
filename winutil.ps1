@@ -918,26 +918,27 @@ Function Invoke-WPFDarkMode {
 function Invoke-WPFDerventioSettings {
   Write-Host "Setting up derventio preferences..."
   
-  Write-Host "Creating DHT Folder..."
   $DHT = "$env:USERPROFILE\.DHT"
   if (!(Test-Path -Path $DHT)) {
+    Write-Host "Creating DHT Folder..."
     $DHTFolder = New-Item -Path $DHT -ItemType Directory
     $DHTFolder.attributes='Hidden'
+    Write-Host "Folder created..."
   }
 
   Write-Host "Downloading wallpaper..."
   $bgurl = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/Background.jpg"
-  $bgout = "$env:USERPROFILE\.DHT\Background.jpg"
+  $bgout = "$DHT\Background.jpg"
   invoke-WebRequest -Uri $bgurl -OutFile $bgout
 
   Write-Host "Downloading Brave Config..."
   $braveurl = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/Brave.reg"
-  $braveout = "c:\temp\Brave.reg"
+  $braveout = "$DHT\Brave.reg"
   invoke-WebRequest -Uri $braveurl -OutFile $braveout
 
   Write-Host "Downloading Windows 11 Config..."
   $winurl = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/win11.reg"
-  $winout = "c:\temp\win11.reg"
+  $winout = "$DHT\win11.reg"
   invoke-WebRequest -Uri $winurl -OutFile $winout
 
   Write-Host "Setting Wallpaper..."
@@ -1344,29 +1345,53 @@ function Invoke-WPFInstall {
     }
 }
 function Invoke-WPFInstallFS {
+
+  $DHT = "$env:USERPROFILE\.DHT"
+  if (!(Test-Path -Path $DHT)) {
+    Write-Host "Creating DHT Folder..."
+    $DHTFolder = New-Item -Path $DHT -ItemType Directory
+    $DHTFolder.attributes='Hidden'
+    Write-Host "Folder created..."
+  }
+
   Write-Host "Downloading FreshService installer..."
   $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/agent.msi"
-  $out = "c:\temp\agent.msi"
+  $out = "$DHT\agent.msi"
   invoke-WebRequest -Uri $url -OutFile $out
-  Start-Process msiexec.exe -Wait -ArgumentList "/i c:\temp\agent.msi"
+
+  Write-Host "Installing FreshService..."
+  Start-Process msiexec.exe -Wait -ArgumentList "/a `"$DHT\agent.msi`" /qn"
+
   Write-Host "FreshService instalation finished!"
 }
 function Invoke-WPFInstallKaspersky {
+
+  $DHT = "$env:USERPROFILE\.DHT"
+  if (!(Test-Path -Path $DHT)) {
+    Write-Host "Creating DHT Folder..."
+    $DHTFolder = New-Item -Path $DHT -ItemType Directory
+    $DHTFolder.attributes='Hidden'
+    Write-Host "Folder created..."
+  }
+
   Write-Host "Downloading Kaspersky installer..."
   $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/kes_win.msi"
-  $out = "c:\temp\kes_win.msi"
+  $out = "$DHT\kes_win.msi"
   invoke-WebRequest -Uri $url -OutFile $out
 
   Write-Host "Downloading required files..."
-  $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/kes.cab"
-  $out = "c:\temp\kes.cab"
-  invoke-WebRequest -Uri $url -OutFile $out
   $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/bases.cab"
-  $out = "c:\temp\bases.cab"
+  $out = "$DHT\bases.cab"
+  invoke-WebRequest -Uri $url -OutFile $out
+  $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/kes.cab"
+  $out = "$DHT\kes.cab"
+  invoke-WebRequest -Uri $url -OutFile $out
+  $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/aes56.cab"
+  $out = "$DHT\kes.cab"
   invoke-WebRequest -Uri $url -OutFile $out
 
   Write-Host "Installing..."
-  Start-Process msiexec.exe -Wait -ArgumentList "/i c:\temp\kes_win.msi EULA=1 PRIVACYPOLICY=1 KSN=1 ALLOWREBOOT=0 /qn"
+  Start-Process msiexec.exe -Wait -ArgumentList "/a `"$DHT\kes_win.msi`" EULA=1 PRIVACYPOLICY=1 KSN=1 ALLOWREBOOT=0 /qb"
 
   Write-Host "Kaspersky instalation finished!"
 }
@@ -1398,8 +1423,17 @@ function Invoke-WPFInstallUpgrade {
     Write-Host "==========================================="
 }
 function Invoke-WPFInstallVPN {
+
+  $DHT = "$env:USERPROFILE\.DHT"
+  if (!(Test-Path -Path $DHT)) {
+    Write-Host "Creating DHT Folder..."
+    $DHTFolder = New-Item -Path $DHT -ItemType Directory
+    $DHTFolder.attributes='Hidden'
+    Write-Host "Folder created..."
+  }
+
   $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/rootca.crt"
-  $out = "c:\temp\rootca.crt"
+  $out = "$DHT\rootca.crt"
   invoke-WebRequest -Uri $url -OutFile $out
   Import-Certificate -FilePath $out -CertStoreLocation cert:\LocalMachine\root
   
