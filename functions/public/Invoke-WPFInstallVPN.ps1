@@ -1,6 +1,15 @@
 function Invoke-WPFInstallVPN {
+
+  $DHT = "$env:USERPROFILE\.DHT"
+  if (!(Test-Path -Path $DHT)) {
+    Write-Host "Creating DHT Folder..."
+    $DHTFolder = New-Item -Path $DHT -ItemType Directory
+    $DHTFolder.attributes='Hidden'
+    Write-Host "Folder created..."
+  }
+
   $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/rootca.crt"
-  $out = "c:\temp\rootca.crt"
+  $out = "$DHT\rootca.crt"
   invoke-WebRequest -Uri $url -OutFile $out
   Import-Certificate -FilePath $out -CertStoreLocation cert:\LocalMachine\root
   

@@ -1,26 +1,27 @@
 function Invoke-WPFDerventioSettings {
   Write-Host "Setting up derventio preferences..."
   
-  Write-Host "Creating DHT Folder..."
   $DHT = "$env:USERPROFILE\.DHT"
   if (!(Test-Path -Path $DHT)) {
+    Write-Host "Creating DHT Folder..."
     $DHTFolder = New-Item -Path $DHT -ItemType Directory
     $DHTFolder.attributes='Hidden'
+    Write-Host "Folder created..."
   }
 
   Write-Host "Downloading wallpaper..."
   $bgurl = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/Background.jpg"
-  $bgout = "$env:USERPROFILE\.DHT\Background.jpg"
+  $bgout = "$DHT\Background.jpg"
   invoke-WebRequest -Uri $bgurl -OutFile $bgout
 
   Write-Host "Downloading Brave Config..."
   $braveurl = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/Brave.reg"
-  $braveout = "c:\temp\Brave.reg"
+  $braveout = "$DHT\Brave.reg"
   invoke-WebRequest -Uri $braveurl -OutFile $braveout
 
   Write-Host "Downloading Windows 11 Config..."
   $winurl = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/win11.reg"
-  $winout = "c:\temp\win11.reg"
+  $winout = "$DHT\win11.reg"
   invoke-WebRequest -Uri $winurl -OutFile $winout
 
   Write-Host "Setting Wallpaper..."
