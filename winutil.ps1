@@ -10,7 +10,7 @@
     Author         : Chris Titus @christitustech
     Runspace Author: @DeveloperDurp
     GitHub         : https://github.com/ChrisTitusTech
-    Version        : 23.05.11
+    Version        : 23.05.15
 #>
 
 Start-Transcript $ENV:TEMP\Winutil.log -Append
@@ -21,7 +21,7 @@ Add-Type -AssemblyName System.Windows.Forms
 # variable to sync between runspaces
 $sync = [Hashtable]::Synchronized(@{})
 $sync.PSScriptRoot = $PSScriptRoot
-$sync.version = "23.05.11"
+$sync.version = "23.05.15"
 $sync.configs = @{}
 $sync.ProcessRunning = $false
 Function Get-WinUtilCheckBoxes {
@@ -2220,10 +2220,10 @@ $inputXML = '<Window x:Class="WinUtility.MainWindow"
                                 <CheckBox Name="WPFInstallzoom" Content="Zoom" Margin="5,0"/>
 
                                 <Label Content="Derventio" FontSize="16" Margin="5,0"/>
-                                <CheckBox Name="Installoffice365" Content="Office 365" Margin="5,0"/>
-                                <CheckBox Name="Installbrave" Content="Brave" Margin="5,0"/>
-                                <CheckBox Name="Installadobe" Content="Adobe Reader DC" Margin="5,0"/>
-                                <CheckBox Name="Installonedrive" Content="OneDrive" Margin="5,0"/>
+                                <CheckBox Name="WPFInstalloffice365" Content="Office 365" Margin="5,0"/>
+                                <CheckBox Name="WPFInstallbrave" Content="Brave" Margin="5,0"/>
+                                <CheckBox Name="WPFInstalladobe" Content="Adobe Reader DC" Margin="5,0"/>
+                                <CheckBox Name="WPFInstallonedrive" Content="OneDrive" Margin="5,0"/>
                             </StackPanel>
                             <StackPanel Background="#777777" SnapsToDevicePixels="True" Grid.Row="1" Grid.Column="1" Margin="10">
                                 <Label Content="Development" FontSize="16" Margin="5,0"/>
