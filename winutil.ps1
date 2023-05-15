@@ -918,7 +918,7 @@ Function Invoke-WPFDarkMode {
 function Invoke-WPFDerventioSettings {
   Write-Host "Setting up derventio preferences..."
   
-  $DHT = "$env:USERPROFILE\.DHT"
+  $DHT = "c:\.DHT"
   if (!(Test-Path -Path $DHT)) {
     Write-Host "Creating DHT Folder..."
     $DHTFolder = New-Item -Path $DHT -ItemType Directory
@@ -1346,7 +1346,7 @@ function Invoke-WPFInstall {
 }
 function Invoke-WPFInstallFS {
 
-  $DHT = "$env:USERPROFILE\.DHT"
+  $DHT = "c:\.DHT"
   if (!(Test-Path -Path $DHT)) {
     Write-Host "Creating DHT Folder..."
     $DHTFolder = New-Item -Path $DHT -ItemType Directory
@@ -1360,13 +1360,13 @@ function Invoke-WPFInstallFS {
   invoke-WebRequest -Uri $url -OutFile $out
 
   Write-Host "Installing FreshService..."
-  Start-Process msiexec.exe -Wait -ArgumentList "/a `"$DHT\agent.msi`" /qn"
+  Start-Process msiexec.exe -Wait -ArgumentList "/i `"$DHT\agent.msi`" /qn"
 
   Write-Host "FreshService instalation finished!"
 }
 function Invoke-WPFInstallKaspersky {
 
-  $DHT = "$env:USERPROFILE\.DHT"
+  $DHT = "c:\.DHT"
   if (!(Test-Path -Path $DHT)) {
     Write-Host "Creating DHT Folder..."
     $DHTFolder = New-Item -Path $DHT -ItemType Directory
@@ -1387,11 +1387,11 @@ function Invoke-WPFInstallKaspersky {
   $out = "$DHT\kes.cab"
   invoke-WebRequest -Uri $url -OutFile $out
   $url = "https://github.com/JJ-VP/winutil-derventio/raw/main/data/aes56.cab"
-  $out = "$DHT\kes.cab"
+  $out = "$DHT\aes56.cab"
   invoke-WebRequest -Uri $url -OutFile $out
 
   Write-Host "Installing..."
-  Start-Process msiexec.exe -Wait -ArgumentList "/a `"$DHT\kes_win.msi`" EULA=1 PRIVACYPOLICY=1 KSN=1 ALLOWREBOOT=0 /qb"
+  Start-Process msiexec.exe -Wait -ArgumentList "/a `"$DHT\kes_win.msi`" EULA=1 PRIVACYPOLICY=1 KSN=1 ALLOWREBOOT=0 /qn"
 
   Write-Host "Kaspersky instalation finished!"
 }
@@ -1424,7 +1424,7 @@ function Invoke-WPFInstallUpgrade {
 }
 function Invoke-WPFInstallVPN {
 
-  $DHT = "$env:USERPROFILE\.DHT"
+  $DHT = "c:\.DHT"
   if (!(Test-Path -Path $DHT)) {
     Write-Host "Creating DHT Folder..."
     $DHTFolder = New-Item -Path $DHT -ItemType Directory

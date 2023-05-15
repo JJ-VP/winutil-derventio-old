@@ -1,6 +1,6 @@
 function Invoke-WPFInstallFS {
 
-  $DHT = "$env:USERPROFILE\.DHT"
+  $DHT = "c:\.DHT"
   if (!(Test-Path -Path $DHT)) {
     Write-Host "Creating DHT Folder..."
     $DHTFolder = New-Item -Path $DHT -ItemType Directory
@@ -14,7 +14,7 @@ function Invoke-WPFInstallFS {
   invoke-WebRequest -Uri $url -OutFile $out
 
   Write-Host "Installing FreshService..."
-  Start-Process msiexec.exe -Wait -ArgumentList "/a `"$DHT\agent.msi`" /qn"
+  Start-Process msiexec.exe -Wait -ArgumentList "/i `"$DHT\agent.msi`" /qn"
 
   Write-Host "FreshService instalation finished!"
 }

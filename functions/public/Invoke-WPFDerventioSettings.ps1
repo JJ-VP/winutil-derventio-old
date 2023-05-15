@@ -1,7 +1,7 @@
 function Invoke-WPFDerventioSettings {
   Write-Host "Setting up derventio preferences..."
   
-  $DHT = "$env:USERPROFILE\.DHT"
+  $DHT = "c:\.DHT"
   if (!(Test-Path -Path $DHT)) {
     Write-Host "Creating DHT Folder..."
     $DHTFolder = New-Item -Path $DHT -ItemType Directory

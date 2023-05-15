@@ -1,6 +1,6 @@
 function Invoke-WPFInstallKaspersky {
 
-  $DHT = "$env:USERPROFILE\.DHT"
+  $DHT = "c:\.DHT"
   if (!(Test-Path -Path $DHT)) {
     Write-Host "Creating DHT Folder..."
     $DHTFolder = New-Item -Path $DHT -ItemType Directory
@@ -25,7 +25,7 @@ function Invoke-WPFInstallKaspersky {
   invoke-WebRequest -Uri $url -OutFile $out
 
   Write-Host "Installing..."
-  Start-Process msiexec.exe -Wait -ArgumentList "/a `"$DHT\kes_win.msi`" EULA=1 PRIVACYPOLICY=1 KSN=1 ALLOWREBOOT=0 /qb"
+  Start-Process msiexec.exe -Wait -ArgumentList "/a `"$DHT\kes_win.msi`" EULA=1 PRIVACYPOLICY=1 KSN=1 ALLOWREBOOT=0 /qn"
 
   Write-Host "Kaspersky instalation finished!"
 }
