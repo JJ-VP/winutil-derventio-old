@@ -1,0 +1,2 @@
+kes_win.msi filter=lfs diff=lfs merge=lfs -text
+bases.cab filter=lfs diff=lfs merge=lfs -text
