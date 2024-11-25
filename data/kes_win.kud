@@ -1,0 +1,180 @@
+
+[Setup]
+UseWrapper=1
+ExecutableRelPath=EXEC
+Params=/s /pAKINSTALL=1 /pINSTALL_INITIATOR=ksc /pEULA=1 /pPRIVACYPOLICY=1 /pKSN=0 /pCLEANERSIGNCHECK=0
+Executable=setup_kes.exe
+RebootDelegated = 1
+RebootAllowed=1
+ConfigFile=installer.ini
+RelPathsToExclude=klcfginst.msi
+
+[Product]
+Name=KES
+LocalizedName=Kaspersky Endpoint Security for Windows (12.7.0)
+ApplicableProductEdition=1
+RegKey=KES
+AdaptedProduct = 1
+LanguageTagLowerCase=en
+
+[IncompatibleApps]
+TxtFile=incompatible.txt
+CleanerFile=cleaner_v2.cab
+CanUninst=1
+IncompatibleUninstIni=installer.ini
+IncompatibleUninstSection=Settings
+IncompatibleUninstKey=RemoveIncompApp
+
+[SetupProcessResult_SuccessCodes]
+0=Installation completed successfully.
+1641=Installation wizard started system restart.  
+3010=A restart is required to complete the installation.
+  
+[SetupProcessResult_ErrorCodes]
+13=The data is invalid. 
+87=One of the parameters is invalid. 
+120=This function is not available for this operating system. It is only available on Windows 2000 and Windows XP with Windows Installer version 2.0. 
+1259=The user cancelled installation.
+1327=Wrong drive specified.
+1601=The Windows Installer service could not be accessed. Contact your support personnel to verify that the Windows Installer service is properly registered.
+1602=Installation cancelled by the user.
+1603=Fatal error during installation. 
+1604=Installation suspended, incomplete.
+1605=This action is only valid for the applications that are currently installed.
+1606=Feature ID not registered. 
+1607=Component ID not registered. 
+1608=Unknown property.
+1609=Handle is in an invalid state.
+1610=The configuration data for this application is corrupt. Contact your support personnel.
+1611=Component qualifier not present. 
+1612=The installation source for this application is not available. Verify that the source exists and that you can access it. 
+1613=This installation package cannot be unpacked by the Windows Installer service. Install a Windows service pack that contains a newer version of the Windows Installer service and retry the installation.
+1614=Application is uninstalled.
+1615=SQL query syntax invalid or unsupported. 
+1616=Record field does not exist. 
+1618=Another installation is already in progress. Complete that installation before proceeding with the new one. 
+1619=This installation package could not be opened. Verify that the package exists and that you can access it, or contact the application vendor to verify that this is a valid Windows Installer package.
+1620=This installation package could not be opened. Contact the application vendor to verify that this is a valid Windows Installer package. 
+1621=There was an error starting the Microsoft Windows Installer service user interface. Contact your support personnel.
+1622=Error opening installation log file. Verify that the specified log file location exists and is writable. 
+1623=This language of this installation package is not supported by your operating system.
+1624=Error applying transforms. Verify that the specified transform paths are valid. 
+1625=This installation is forbidden by system policy. Contact your system administrator.
+1626=Function could not be executed. 
+1627=Function failed during execution. 
+1628=Invalid or unknown table specified. 
+1629=Data supplied is of the wrong type.
+1630=Data of this type is not supported. 
+1631=The Windows Installer service failed to start. Contact your support personnel. 
+1632=The temp folder is either full or inaccessible. Verify that the temp folder exists and that you can write to it.
+1633=This installation package is not supported on this operating system. Contact your application vendor. 
+1634=Component not used on this computer. 
+1635=This patch package could not be opened. Verify that the patch package exists and that you can access it, or contact the application vendor to verify that this is a valid Windows Installer patch package.
+1636=This patch package could not be opened. Contact the application vendor to verify that this is a valid Windows Installer patch package.
+1637=This patch package cannot be processed by the available version of the Windows Installer service. Update the Windows Installer service to a newer version. 
+1638=Another version of this application is already installed. Installation of this version cannot continue. To configure or remove the existing version of this application, use Add or Remove Programs in Control Panel. 
+1639=Invalid command line argument. Consult the Windows Installer SDK for help with using the command line.
+1640=Installation from a Terminal Server client session not permitted for current user. 
+1642=The installer cannot install the upgrade patch because the application being upgraded may be missing or the upgrade patch updates a different version of the application. Verify that the application to be upgraded is installed on your computer and that you have specified the correct upgrade path.
+1643=Service pack is not permitted by system policy. 
+1644=One or more customizations are not permitted by system policy. 
+1645=The Windows Installer does not permit installation from a Remote Desktop Web Connection. For more information, see Remote Desktop Web Connection in the Terminal Services section of the Platform SDK.
+
+[SetupMainResult_SuccessCodes]
+0=Installation completed successfully.
+1641=Installation wizard started system restart.  
+3010=A restart is required to complete the installation.
+ 
+[SetupMainResult_ErrorCodes]
+100=Fatal error during installation.
+
+[SetupMainResult_WarningCodes]
+50=Warning during installation.
+
+[UpdCfg/1]
+Index=index/u1313g.xml
+Filter=app=KES 21.19.*.*:componentid=ARK,BB,BLST2,CDB2,EMU,APCAT,HIPSDB,ICTRL,INTRP,ELOC,IDS,KDBHALF,KDSCRL,KSN,OSSL,QSCAN,SCO,SI,SUPD,SW2,Updater,KISCFG,CONFIG,SIDRV,INSTR,WA,WLST,ADB,APD,APSIG,APU,CASB,PERF,PLG,SSA,UMIDS,WF,WMUF,DOTNET,KESEFD,KDBCUT,KES11,RETR1901,RETR1901_ARK,RETR1901_BB,RETR1901_BLST2,RETR1901_CDB2,RETR1901_EMU,RETR1901_APCAT,RETR1901_HIPSDB,RETR1901_ICTRL,RETR1901_INTRP,RETR1901_ELOC,RETR1901_IDS,RETR1901_KDBHALF,RETR1901_KDSCRL,RETR1901_KSN,RETR1901_OSSL,RETR1901_QSCAN,RETR1901_SCO,RETR1901_SI,RETR1901_SUPD,RETR1901_SW2,RETR1901_Updater,RETR1901_KISCFG,RETR1901_CONFIG,RETR1901_SIDRV,RETR1901_INSTR,RETR1901_WA,RETR1901_WLST,RETR1901_ADB,RETR1901_APD,RETR1901_APSIG,RETR1901_APU,RETR1901_CASB,RETR1901_PERF,RETR1901_PLG,RETR1901_SSA,RETR1901_UMIDS,RETR1901_WF,RETR1901_WMUF,RETR1901_DOTNET,RETR1901_KESEFD,RETR1901_KDBCUT,RETR1901_KES11:os=win-*-*-*:arch=i386:lang=en
+
+[UpdCfg/2]
+Index=updaters/updater.xml
+Filter=app=KES 21.19.*.*:componentid=supd,retr1901,retr1901_supd:os=win-*-*-*:updater=*.*.*.*:lang=en
+
+[UpdCfg/3]
+Index=index/u1313g.xml
+Filter=app=SOYUZ 3.*.*.*:componentid=APTEM;RETR1901_APTEM;BLST2;RETR1901_BLST2;KSN;RETR1901_KSN;Updater;RETR1901_Updater;SOYUZ3;RETR1901_SOYUZ3;RETR1901:os=win:arch=i386
+
+[UpdCfg/4]
+Index=updaters/updater.xml
+Filter=componentid=supd;retr1901;retr1901_supd:os=win:updater=*.*.*.*
+
+[UpdCfgPkg/1]
+Index=index/u1313g.xml
+Filter=app=KES 21.19.*.*:componentid=ARK,BB,BLST2,CDB2,EMU,APCAT,HIPSDB,ICTRL,INTRP,ELOC,IDS,KDSCRL,KSN,OSSL,QSCAN,SCO,SI,SUPD,SW2,Updater,KISCFG,CONFIG,SIDRV,INSTR,WA,WLST,ADB,APD,APSIG,APU,CASB,PERF,PLG,SSA,UMIDS,WF,WMUF,DOTNET,KESEFD,KDBCUT,RETR1901,RETR1901_ARK,RETR1901_BB,RETR1901_BLST2,RETR1901_CDB2,RETR1901_EMU,RETR1901_APCAT,RETR1901_HIPSDB,RETR1901_ICTRL,RETR1901_INTRP,RETR1901_ELOC,RETR1901_IDS,RETR1901_KDSCRL,RETR1901_KSN,RETR1901_OSSL,RETR1901_QSCAN,RETR1901_SCO,RETR1901_SI,RETR1901_SUPD,RETR1901_SW2,RETR1901_Updater,RETR1901_KISCFG,RETR1901_CONFIG,RETR1901_SIDRV,RETR1901_INSTR,RETR1901_WA,RETR1901_WLST,RETR1901_ADB,RETR1901_APD,RETR1901_APSIG,RETR1901_APU,RETR1901_CASB,RETR1901_PERF,RETR1901_PLG,RETR1901_SSA,RETR1901_UMIDS,RETR1901_WF,RETR1901_WMUF,RETR1901_DOTNET,RETR1901_KESEFD,RETR1901_KDBCUT:os=win-*-*-*:arch=i386:lang=en
+
+[UpdCfgPkg/2]
+Index=updaters/updater.xml
+Filter=app=KES 21.19.*.*:componentid=supd,retr1901,retr1901_supd:os=win-*-*-*:updater=*.*.*.*:lang=en
+
+[UpdInfo]
+Folder=Bases
+RelPathsToDelete=bases.cab
+
+[EULA]
+Utf8File=license.txt
+Uid=0D08B464DB96479DA8D0488E6459502F
+
+[ConfigFiles]
+ConfigFile=installer.ini
+
+[SetupProcessResult]
+Wait=1
+DescriptionFile=avpsetup.rep
+DescriptionFileU=avpsetup.rpu
+
+[SetupProcessResult_WarningCodes]
+
+[SetupProcessResult_NeedReboot]
+1641=1
+3010=1
+ 
+[SetupProcessResult_FailReasons]
+120=18
+1601=5
+1612=5
+1613=23
+1618=24
+1619=25
+1620=25
+1622=28
+1623=26
+1625=27
+1631=5
+1632=5
+1633=18
+1635=25
+1636=25
+1637=23
+1638=19
+1643=27
+1644=27
+ 
+[SetupMainResult]
+File=setup.log
+Section=ResponseResult
+Value=ResultCode
+DescriptionFile=avpsetup.rep
+DescriptionFileU=avpsetup.rpu
+FailReasonValue=FailReason
+
+[SetupRestart]
+File=setup.log
+Section=ResponseResult
+Value=RebootZombieFile
+
+[Version]
+VerMajor=11
+VerMinor=0
+VerBuild=0
+VerPatch=0
+PluginVersion=12.7.0.533
+DisplayVersion=12.7.0.533
